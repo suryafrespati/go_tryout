@@ -17,4 +17,5 @@ func main() {
 	map_example.Init()
 	func_example.Init()
 
+    fmt.Println("--- end of file")
 }

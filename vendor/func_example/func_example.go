@@ -21,6 +21,8 @@ func Init() {
 	var avg = calculateAll(2, 4, 3, 5, 4, 3, 3, 5, 5, 3)
 	var msg = fmt.Sprintf("Rata-rata : %.2f", avg)
 	fmt.Println(msg)
+
+    closureExample()
 }
 
 func randomWithRange(min, max int) int {
@@ -62,5 +64,26 @@ func calculateAll(numbers ...int) float64 {
 
 	var avg = float64(total) / float64(len(numbers))
 	return avg
+}
+
+func closureExample() {
+    var getMinMax = func(n []int) (int, int) {
+        var min, max int
+        for i, e := range n {
+            switch {
+            case i == 0:
+                max, min = e, e
+            case e > max:
+                max = e
+            case e < min:
+                min = e
+            }
+        }
+        return min, max
+    }
+
+    var numbers = []int{2, 3, 4, 3, 4, 2, 3}
+    var min, max = getMinMax(numbers)
+    fmt.Printf("data : %v\nmin  : %v\nmax  : %v\n", numbers, min, max)
 }
 
