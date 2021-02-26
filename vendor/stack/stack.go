@@ -6,7 +6,6 @@ import "strings"
 func Init() {
 	fmt.Println("init Stack")
 
-
     names := []string{
         "Surya",
         "Respati",

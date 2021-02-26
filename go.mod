@@ -10,9 +10,18 @@ replace map_example => ./map_example
 
 replace func_example => ./func_example
 
+replace pointer_example => ./pointer_example
+
+replace struct_example => ./struct_example
+
+replace embedded_struct_example => ./embedded_struct_example
+
 require (
 	array_slice_example v0.0.0-00010101000000-000000000000
+	embedded_struct_example v0.0.0-00010101000000-000000000000
 	func_example v0.0.0-00010101000000-000000000000
 	map_example v0.0.0-00010101000000-000000000000
+	pointer_example v0.0.0-00010101000000-000000000000
 	stack v0.0.0-00010101000000-000000000000
+	struct_example v0.0.0-00010101000000-000000000000
 )

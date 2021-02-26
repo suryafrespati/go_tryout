@@ -4,6 +4,7 @@ import "time"
 import "fmt"
 import "math/rand"
 import "math"
+import "strings"
 
 func Init() {
 	fmt.Println("Init func_example")
@@ -23,6 +24,7 @@ func Init() {
 	fmt.Println(msg)
 
     closureExample()
+    callbackFunctionExample()
 }
 
 func randomWithRange(min, max int) int {
@@ -86,4 +88,37 @@ func closureExample() {
     var min, max = getMinMax(numbers)
     fmt.Printf("data : %v\nmin  : %v\nmax  : %v\n", numbers, min, max)
 }
+
+type FilterCallback func(string) bool
+type ArrayString []string
+
+func filter(data ArrayString, callback FilterCallback) ArrayString {
+    var result ArrayString
+    for _, each := range data {
+        if filtered := callback(each); filtered {
+            result = append(result, each)
+        }
+    }
+    return result
+}
+
+func callbackFunctionExample() {
+    var data = []string{"wick", "jason", "ethan"}
+    var dataContainsO = filter(data, func(each string) bool {
+        return strings.Contains(each, "o")
+    })
+    var dataLenght5 = filter(data, func(each string) bool {
+        return len(each) == 5
+    })
+
+    fmt.Println("data asli \t\t:", data)
+    // data asli : [wick jason ethan]
+
+    fmt.Println("filter ada huruf \"o\"\t:", dataContainsO)
+    // filter ada huruf "o" : [jason]
+
+    fmt.Println("filter jumlah huruf \"5\"\t:", dataLenght5)
+    // filter jumlah huruf "5" : [jason ethan]
+}
+
 

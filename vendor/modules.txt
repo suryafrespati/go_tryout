@@ -1,16 +1,28 @@
 # array_slice_example v0.0.0-00010101000000-000000000000 => ./array_slice_example
 ## explicit
 array_slice_example
+# embedded_struct_example v0.0.0-00010101000000-000000000000 => ./embedded_struct_example
+## explicit
+embedded_struct_example
 # func_example v0.0.0-00010101000000-000000000000 => ./func_example
 ## explicit
 func_example
 # map_example v0.0.0-00010101000000-000000000000 => ./map_example
 ## explicit
 map_example
+# pointer_example v0.0.0-00010101000000-000000000000 => ./pointer_example
+## explicit
+pointer_example
 # stack v0.0.0-00010101000000-000000000000 => ./stack
 ## explicit
 stack
+# struct_example v0.0.0-00010101000000-000000000000 => ./struct_example
+## explicit
+struct_example
 # stack => ./stack
 # array_slice_example => ./array_slice_example
 # map_example => ./map_example
 # func_example => ./func_example
+# pointer_example => ./pointer_example
+# struct_example => ./struct_example
+# embedded_struct_example => ./embedded_struct_example
