@@ -16,11 +16,17 @@ replace struct_example => ./struct_example
 
 replace embedded_struct_example => ./embedded_struct_example
 
+replace method_example => ./method_example
+
+replace interface_example => ./interface_example
+
 require (
 	array_slice_example v0.0.0-00010101000000-000000000000
 	embedded_struct_example v0.0.0-00010101000000-000000000000
 	func_example v0.0.0-00010101000000-000000000000
+	interface_example v0.0.0-00010101000000-000000000000
 	map_example v0.0.0-00010101000000-000000000000
+	method_example v0.0.0-00010101000000-000000000000
 	pointer_example v0.0.0-00010101000000-000000000000
 	stack v0.0.0-00010101000000-000000000000
 	struct_example v0.0.0-00010101000000-000000000000

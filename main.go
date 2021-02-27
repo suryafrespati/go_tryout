@@ -8,7 +8,11 @@ import (
     "pointer_example"
     "struct_example"
     "embedded_struct_example"
+    "method_example"
+    "interface_example"
 	"stack"
+    "dsa/library"
+    "dsa/models"
 )
 
 type Environment map[string]string
@@ -21,6 +25,13 @@ type BaseConfig struct {
 func main() {
 	fmt.Println("learn Golang")
 	print("\n\n\n")
+
+    var user1 = models.User{
+        Name: "Surya",
+        Age: 23,
+    }
+
+    fmt.Println(user1)
 
     var baseEnv = BaseConfig{
         stage: "local",
@@ -39,6 +50,7 @@ func main() {
     _ = env
     _ = baseEnv
 
+    library.Init()
 	stack.Init()
 	array_slice_example.Init()
 	map_example.Init()
@@ -46,6 +58,8 @@ func main() {
 	pointer_example.Init()
 	struct_example.Init()
 	embedded_struct_example.Init()
+    method_example.Init()
+    interface_example.Init()
 
     fmt.Println("--- end of file")
 }

@@ -1,4 +1,3 @@
-# go_dsa
+# go_tryout
 Repo for learning Go language.
-Try to implement many Data Structure & Algorithms
 
