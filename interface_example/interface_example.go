@@ -47,12 +47,12 @@ func Init() {
     fmt.Println("user2: ", user2.getUsername())
     fmt.Println("user2: ", user2.(Visitor).getEntryFee())
 
-    var bangunRuang hitung = &kubus{4}
+    var geometry calculate = &cube{4}
 
-    fmt.Println("===== kubus")
-    fmt.Println("luas      :", bangunRuang.luas())
-    fmt.Println("keliling  :", bangunRuang.keliling())
-    fmt.Println("volume    :", bangunRuang.volume())
+    fmt.Println("===== cube")
+    fmt.Println("area           :", geometry.area())
+    fmt.Println("circumference  :", geometry.circumference())
+    fmt.Println("volume         :", geometry.volume())
 }
 
 func (m Member) getUsername() string {
@@ -83,35 +83,33 @@ func (v Visitor) getEntryFee() int {
     return v.entryFee
 }
 
-type hitung2d interface {
-    luas() float64
-    keliling() float64
+type calculate2d interface {
+    area() float64
+    circumference() float64
 }
 
-type hitung3d interface {
+type calculate3d interface {
     volume() float64
 }
 
-type hitung interface {
-    hitung2d
-    hitung3d
+type calculate interface {
+    calculate2d
+    calculate3d
 }
 
-type kubus struct {
-    sisi float64
+type cube struct {
+    side float64
 }
 
-func (k *kubus) volume() float64 {
-    return math.Pow(k.sisi, 3)
+func (k *cube) volume() float64 {
+    return math.Pow(k.side, 3)
 }
 
-func (k *kubus) luas() float64 {
-    return math.Pow(k.sisi, 2) * 6
+func (k *cube) area() float64 {
+    return math.Pow(k.side, 2) * 6
 }
 
-func (k *kubus) keliling() float64 {
-    return k.sisi * 12
+func (k *cube) circumference() float64 {
+    return k.side * 12
 }
-
-
 

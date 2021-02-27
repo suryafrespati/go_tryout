@@ -1,7 +1,7 @@
 package  interface_example
 
 import "fmt"
-// import "math"
+import "math"
 
 type UserAccess interface {
     getUsername() string
@@ -46,6 +46,13 @@ func Init() {
 
     fmt.Println("user2: ", user2.getUsername())
     fmt.Println("user2: ", user2.(Visitor).getEntryFee())
+
+    var geometry calculate = &cube{4}
+
+    fmt.Println("===== cube")
+    fmt.Println("area           :", geometry.area())
+    fmt.Println("circumference  :", geometry.circumference())
+    fmt.Println("volume         :", geometry.volume())
 }
 
 func (m Member) getUsername() string {
@@ -74,5 +81,35 @@ func (v Visitor) getCurrentAccessKey() string {
 
 func (v Visitor) getEntryFee() int {
     return v.entryFee
+}
+
+type calculate2d interface {
+    area() float64
+    circumference() float64
+}
+
+type calculate3d interface {
+    volume() float64
+}
+
+type calculate interface {
+    calculate2d
+    calculate3d
+}
+
+type cube struct {
+    side float64
+}
+
+func (k *cube) volume() float64 {
+    return math.Pow(k.side, 3)
+}
+
+func (k *cube) area() float64 {
+    return math.Pow(k.side, 2) * 6
+}
+
+func (k *cube) circumference() float64 {
+    return k.side * 12
 }
 
