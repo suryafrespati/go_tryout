@@ -20,6 +20,12 @@ func Init() {
 
     change(&number, 10)
     fmt.Println("after  :", number) // 10
+
+    var daysOfYear int = 365
+    fmt.Println("daysOfYear", daysOfYear)
+
+    var durationOfStudy *int = &daysOfYear
+    fmt.Println("durationOfStudy", *durationOfStudy)
 }
 
 func change(original *int, value int) {
