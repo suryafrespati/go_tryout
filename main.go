@@ -10,6 +10,7 @@ import (
     "embedded_struct_example"
     "method_example"
     "interface_example"
+    "reflect_example"
     "stack"
     "dsa/library"
     "dsa/models"
@@ -24,7 +25,7 @@ type BaseConfig struct {
 
 func main() {
     fmt.Println("learn Golang")
-    print("\n\n\n")
+    print("\n")
 
     var user1 = models.User{
         Name: "Surya",
@@ -60,6 +61,7 @@ func main() {
     embedded_struct_example.Init()
     method_example.Init()
     interface_example.Init()
+    reflect_example.Init()
 
     fmt.Println("--- end of file")
 }
