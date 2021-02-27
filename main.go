@@ -1,16 +1,16 @@
 package main
 
 import (
-	"array_slice_example"
-	"fmt"
-	"func_example"
-	"map_example"
+    "array_slice_example"
+    "fmt"
+    "func_example"
+    "map_example"
     "pointer_example"
     "struct_example"
     "embedded_struct_example"
     "method_example"
     "interface_example"
-	"stack"
+    "stack"
     "dsa/library"
     "dsa/models"
 )
@@ -23,8 +23,8 @@ type BaseConfig struct {
 }
 
 func main() {
-	fmt.Println("learn Golang")
-	print("\n\n\n")
+    fmt.Println("learn Golang")
+    print("\n\n\n")
 
     var user1 = models.User{
         Name: "Surya",
@@ -51,13 +51,13 @@ func main() {
     _ = baseEnv
 
     library.Init()
-	stack.Init()
-	array_slice_example.Init()
-	map_example.Init()
-	func_example.Init()
-	pointer_example.Init()
-	struct_example.Init()
-	embedded_struct_example.Init()
+    stack.Init()
+    array_slice_example.Init()
+    map_example.Init()
+    func_example.Init()
+    pointer_example.Init()
+    struct_example.Init()
+    embedded_struct_example.Init()
     method_example.Init()
     interface_example.Init()
 
