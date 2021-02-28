@@ -10,14 +10,12 @@ type User struct {
 func init() {
     fmt.Println("init user model")
 
-    // fmt.Println(modelConfigs["initiated"])
+    // try appending slice inside of an interface{}
+    var initiatedModels []string =
+        modelConfigs["initiated"].([]string)
+    initiatedModels = append(initiatedModels, "user")
+    modelConfigs["initiated"] = initiatedModels
 
-    // for _, v := range modelConfigs["initiated"] {
-    //     fmt.Println(v)
-    // }
-
-    // var temp []string = modelConfigs["initiated"]
-    // temp = append(temp, "user")
-    // modelConfigs["initiated"] = temp
+    fmt.Println("initiated model", modelConfigs["initiated"])
 }
 
