@@ -22,10 +22,13 @@ replace interface_example => ./interface_example
 
 replace reflect_example => ./reflect_example
 
+replace goroutine_example => ./goroutine_example
+
 require (
 	array_slice_example v0.0.0-00010101000000-000000000000
 	embedded_struct_example v0.0.0-00010101000000-000000000000
 	func_example v0.0.0-00010101000000-000000000000
+	goroutine_example v0.0.0-00010101000000-000000000000
 	interface_example v0.0.0-00010101000000-000000000000
 	map_example v0.0.0-00010101000000-000000000000
 	method_example v0.0.0-00010101000000-000000000000

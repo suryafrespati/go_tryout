@@ -1,0 +1,3 @@
+module goroutine_example
+
+go 1.15

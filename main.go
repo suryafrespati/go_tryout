@@ -11,6 +11,7 @@ import (
     "method_example"
     "interface_example"
     "reflect_example"
+    "goroutine_example"
     "stack"
     "dsa/library"
     "dsa/models"
@@ -62,6 +63,7 @@ func main() {
     method_example.Init()
     interface_example.Init()
     reflect_example.Init()
+    goroutine_example.Init()
 
     fmt.Println("--- end of file")
 }

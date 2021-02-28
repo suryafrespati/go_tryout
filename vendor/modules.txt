@@ -7,6 +7,9 @@ embedded_struct_example
 # func_example v0.0.0-00010101000000-000000000000 => ./func_example
 ## explicit
 func_example
+# goroutine_example v0.0.0-00010101000000-000000000000 => ./goroutine_example
+## explicit
+goroutine_example
 # interface_example v0.0.0-00010101000000-000000000000 => ./interface_example
 ## explicit
 interface_example
@@ -38,3 +41,4 @@ struct_example
 # method_example => ./method_example
 # interface_example => ./interface_example
 # reflect_example => ./reflect_example
+# goroutine_example => ./goroutine_example
