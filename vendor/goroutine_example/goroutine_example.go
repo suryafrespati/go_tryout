@@ -2,6 +2,7 @@ package goroutine_example
 
 import  "fmt"
 import "runtime"
+import "time"
 
 func Init() {
     runtime.GOMAXPROCS(2)
@@ -41,7 +42,7 @@ func channelExample() {
     var chLen int = 0
 
     var sayHelloTo = func(who string) {
-        var data = fmt.Sprintf("hello %s", who)
+        var data = fmt.Sprintf("# %s", who)
         messages <- data
     }
 
@@ -58,14 +59,24 @@ func channelExample() {
     // var message3 = <-messages
     // fmt.Println(message3)
 
+    time.Sleep(1 * time.Millisecond)
+
     var pushToCh func(string, func(string)) = func (text string, cb func(string)) {
         go cb(text)
+
+        // fmt.Println(<- messages)
+
+        // to make sure each goroutine executed in correct order.
+        time.Sleep(10 * time.Millisecond)
+
         chLen += 1
     }
 
-    pushToCh("#1 message. learn golang", sayHelloTo)
-    pushToCh("#2 message. write some code", sayHelloTo)
-     pushToCh("#3 message. create product", sayHelloTo)
+    pushToCh("1 message. learn golang", sayHelloTo)
+    pushToCh("2 message. write some code", sayHelloTo)
+    pushToCh("3 message. create product", sayHelloTo)
+    pushToCh("4 message. test product", sayHelloTo)
+    pushToCh("5 message. push to market", sayHelloTo)
 
     for i := 0; i < chLen; i++ {
         fmt.Println(<- messages)
