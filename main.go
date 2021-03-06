@@ -1,20 +1,20 @@
 package main
 
 import (
-    "array_slice_example"
     "fmt"
-    "func_example"
-    "map_example"
-    "pointer_example"
-    "struct_example"
-    "embedded_struct_example"
-    "method_example"
-    "interface_example"
-    "reflect_example"
-    "goroutine_example"
-    "stack"
-    "dsa/library"
-    "dsa/models"
+    "tryout/array_slice_example"
+    "tryout/func_example"
+    "tryout/map_example"
+    "tryout/pointer_example"
+    "tryout/struct_example"
+    "tryout/embedded_struct_example"
+    "tryout/method_example"
+    "tryout/interface_example"
+    "tryout/reflect_example"
+    "tryout/goroutine_example"
+    "tryout/stack"
+    "tryout/library"
+    "tryout/models"
 )
 
 type Environment map[string]string
