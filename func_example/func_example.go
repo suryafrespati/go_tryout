@@ -1,10 +1,12 @@
 package func_example
 
-import "time"
-import "fmt"
-import "math/rand"
-import "math"
-import "strings"
+import (
+	"fmt"
+	"math"
+	"math/rand"
+	"strings"
+	"time"
+)
 
 func Init() {
 	fmt.Println("Init func_example")
@@ -23,8 +25,8 @@ func Init() {
 	var msg = fmt.Sprintf("Rata-rata : %.2f", avg)
 	fmt.Println(msg)
 
-    closureExample()
-    callbackFunctionExample()
+	closureExample()
+	callbackFunctionExample()
 }
 
 func randomWithRange(min, max int) int {
@@ -69,56 +71,54 @@ func calculateAll(numbers ...int) float64 {
 }
 
 func closureExample() {
-    var getMinMax = func(n []int) (int, int) {
-        var min, max int
-        for i, e := range n {
-            switch {
-            case i == 0:
-                max, min = e, e
-            case e > max:
-                max = e
-            case e < min:
-                min = e
-            }
-        }
-        return min, max
-    }
+	var getMinMax = func(n []int) (int, int) {
+		var min, max int
+		for i, e := range n {
+			switch {
+			case i == 0:
+				max, min = e, e
+			case e > max:
+				max = e
+			case e < min:
+				min = e
+			}
+		}
+		return min, max
+	}
 
-    var numbers = []int{2, 3, 4, 3, 4, 2, 3}
-    var min, max = getMinMax(numbers)
-    fmt.Printf("data : %v\nmin  : %v\nmax  : %v\n", numbers, min, max)
+	var numbers = []int{2, 3, 4, 3, 4, 2, 3}
+	var min, max = getMinMax(numbers)
+	fmt.Printf("data : %v\nmin  : %v\nmax  : %v\n", numbers, min, max)
 }
 
 type FilterCallback func(string) bool
 type ArrayString []string
 
 func filter(data ArrayString, callback FilterCallback) ArrayString {
-    var result ArrayString
-    for _, each := range data {
-        if filtered := callback(each); filtered {
-            result = append(result, each)
-        }
-    }
-    return result
+	var result ArrayString
+	for _, each := range data {
+		if filtered := callback(each); filtered {
+			result = append(result, each)
+		}
+	}
+	return result
 }
 
 func callbackFunctionExample() {
-    var data = []string{"wick", "jason", "ethan"}
-    var dataContainsO = filter(data, func(each string) bool {
-        return strings.Contains(each, "o")
-    })
-    var dataLenght5 = filter(data, func(each string) bool {
-        return len(each) == 5
-    })
+	var data = []string{"wick", "jason", "ethan"}
+	var dataContainsO = filter(data, func(each string) bool {
+		return strings.Contains(each, "o")
+	})
+	var dataLenght5 = filter(data, func(each string) bool {
+		return len(each) == 5
+	})
 
-    fmt.Println("data asli \t\t:", data)
-    // data asli : [wick jason ethan]
+	fmt.Println("data asli \t\t:", data)
+	// data asli : [wick jason ethan]
 
-    fmt.Println("filter ada huruf \"o\"\t:", dataContainsO)
-    // filter ada huruf "o" : [jason]
+	fmt.Println("filter ada huruf \"o\"\t:", dataContainsO)
+	// filter ada huruf "o" : [jason]
 
-    fmt.Println("filter jumlah huruf \"5\"\t:", dataLenght5)
-    // filter jumlah huruf "5" : [jason ethan]
+	fmt.Println("filter jumlah huruf \"5\"\t:", dataLenght5)
+	// filter jumlah huruf "5" : [jason ethan]
 }
-
-

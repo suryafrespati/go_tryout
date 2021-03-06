@@ -1,17 +1,19 @@
 package stack
 
-import "fmt"
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 func Init() {
 	fmt.Println("init Stack")
 
-    names := []string{
-        "Surya",
-        "Respati",
-    }
+	names := []string{
+		"Surya",
+		"Respati",
+	}
 
-    var nameAsString string = strings.Join(names, ", ")
+	var nameAsString string = strings.Join(names, ", ")
 
-    fmt.Println(nameAsString)
+	fmt.Println(nameAsString)
 }
