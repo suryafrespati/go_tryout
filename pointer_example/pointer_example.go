@@ -3,28 +3,24 @@ package pointer_example
 import "fmt"
 
 func Init() {
-	fmt.Println("Init pointer_example")
+	fmt.Printf("\n# --- pointer_example\n\n")
 
 	var numberA int = 4
 	var numberB *int = &numberA
 
-	fmt.Println("numberA (value)   :", numberA)  // 4
-	fmt.Println("numberA (address) :", &numberA) // 0xc20800a220
+	fmt.Println("numberA (value)   :", numberA)
+	fmt.Println("numberA (address) :", &numberA)
 
-	fmt.Println("numberB (value)   :", *numberB) // 4
-	fmt.Println("numberB (address) :", numberB)  // 0xc20800a220
+	fmt.Println("numberB (value)   :", *numberB)
+	fmt.Println("numberB (address) :", numberB)
 
 	var number = 4
-	fmt.Println("before :", number) // 4
+	fmt.Println("before :", number)
 
 	change(&number, 10)
-	fmt.Println("after  :", number) // 10
+	fmt.Println("after  :", number)
 
-	var daysOfYear int = 365
-	fmt.Println("daysOfYear", daysOfYear)
-
-	var durationOfStudy *int = &daysOfYear
-	fmt.Println("durationOfStudy", *durationOfStudy)
+	fmt.Printf("\n# --- end of pointer_example\n\n")
 }
 
 func change(original *int, value int) {
