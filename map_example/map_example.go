@@ -1,38 +1,16 @@
 package map_example
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"time"
+)
 
 func Init() {
-	fmt.Println("Init map")
-
-	//	tryMapOfMap()
+	fmt.Printf("\n# --- map_example\n\n")
+	tryMapOfMap()
 	sliceOfMap()
-}
-
-func sliceOfMap() {
-	users := []map[string]string{}
-	users = append(users, createUser("Surya"))
-	users = append(users, createUser("Firdaus"))
-	users = append(users, createUser("Respati"))
-
-	for _, u := range users {
-		fmt.Println(u["name"])
-	}
-
-	var chickens = []map[string]string{
-		{"name": "chicken blue", "gender": "male"},
-		{"name": "chicken red", "gender": "male"},
-		{"name": "chicken yellow", "gender": "female"},
-	}
-
-	for _, chicken := range chickens {
-		fmt.Println(chicken["gender"], chicken["name"])
-	}
-
-	var products [11]map[string]int
-	products[0] = map[string]int{
-		"Macbook": 0,
-	}
+	fmt.Printf("\n# --- end of map_example\n\n")
 }
 
 func createUser(name string) map[string]string {
@@ -41,19 +19,94 @@ func createUser(name string) map[string]string {
 	}
 }
 
+func sliceOfMap() {
+	fmt.Printf("\nsliceOfMap()\n\n")
+
+	users := []map[string]string{}
+
+	users = append(users, createUser("Surya"))
+	users = append(users, createUser("Martin"))
+	users = append(users, createUser("Alexander"))
+
+	for _, u := range users {
+		fmt.Println(u["name"])
+	}
+
+	fmt.Printf("\n")
+
+	var pets = []map[string]string{
+		{
+			"name":   "mueza",
+			"animal": "cat",
+			"gender": "male",
+		},
+		{
+			"name":   "oscar",
+			"animal": "otter",
+			"gender": "male",
+		},
+		{
+			"name":   "fae",
+			"animal": "rabbit",
+			"gender": "female",
+		},
+	}
+
+	for _, pet := range pets {
+		fmt.Println(pet["name"], pet["animal"], pet["gender"])
+	}
+
+	fmt.Printf("\n")
+
+	const MAX_COMPONENT_GROUP uint = 4
+	var carComponentForceThresholds [MAX_COMPONENT_GROUP]map[string]int
+
+	carComponentForceThresholds[0] = map[string]int{
+		"backTrunk":  5,
+		"frontTrunk": 10,
+	}
+
+	carComponentForceThresholds[1] = map[string]int{
+		"backBumper":  6,
+		"frontBumper": 15,
+	}
+
+	carComponentForceThresholds[2] = map[string]int{
+		"backWindow":  12,
+		"frontWindow": 17,
+		"leftWindow":  8,
+		"rightWindow": 8,
+	}
+
+	for k, v := range carComponentForceThresholds {
+		fmt.Printf("%v - %v \n", k, v)
+	}
+
+	fmt.Printf("\nend of sliceOfMap()\n\n")
+}
+
 func tryMapOfMap() {
-
-	var chicken map[string]int
-	chicken = map[string]int{}
-
-	chicken["januari"] = 50
-	chicken["februari"] = 40
-
-	fmt.Println("januari", chicken["januari"]) // januari 50
+	fmt.Printf("\ntryMapOfMap()\n\n")
 
 	usersById := map[string]map[string]string{}
 
-	usersById["uuid1"] = map[string]string{
-		"email": "suryafrespati@gmail.com",
+	usersById[generateUid()] = map[string]string{
+		"email": "surya@test.com",
 	}
+	usersById[generateUid()] = map[string]string{
+		"email": "orang@test.com",
+	}
+	usersById[generateUid()] = map[string]string{
+		"email": "saykoji@test.com",
+	}
+
+	for k, v := range usersById {
+		fmt.Printf("%v - %v \n", k, v)
+	}
+
+	fmt.Printf("\nend of tryMapOfMap()\n\n")
+}
+
+func generateUid() string {
+	return strconv.FormatInt(time.Now().UnixNano(), 10)
 }
