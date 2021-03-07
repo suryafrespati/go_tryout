@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"tryout/array_slice_example"
 	"tryout/embedded_struct_example"
+	"tryout/error_example"
 	"tryout/func_example"
 	"tryout/goroutine_example"
 	"tryout/interface_example"
@@ -63,6 +64,7 @@ func main() {
 	method_example.Init()
 	interface_example.Init()
 	reflect_example.Init()
+	error_example.Init()
 	goroutine_example.Init()
 
 	fmt.Println("--- end of file")
