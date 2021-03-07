@@ -7,7 +7,7 @@ import (
 )
 
 func Init() {
-	fmt.Println("Init error_example")
+	fmt.Printf("\n# --- error_example\n\n")
 
 	var name string = ""
 	// var name string = "Bruce Wayne"
@@ -18,12 +18,12 @@ func Init() {
 		fmt.Println(err.Error())
 	}
 
-	fmt.Println()
+	fmt.Printf("\n# --- end of error_example\n\n")
 }
 
 func validate(input string) (bool, error) {
 	if strings.TrimSpace(input) == "" {
-		return false, errors.New("cannot be empty")
+		return false, errors.New("input cannot be empty")
 	}
 	return true, nil
 }
