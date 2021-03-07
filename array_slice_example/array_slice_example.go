@@ -3,8 +3,76 @@ package array_slice_example
 import "fmt"
 
 func Init() {
+	fmt.Printf("\n# --- array_slice_example\n\n")
 
-	fmt.Println("Init array & slice")
+	capExample()
+	copyExample()
+	slice3IndexesExample()
+	appendExample()
+	triangleExample()
+
+	fmt.Printf("\n# --- end of array_slice_example\n\n")
+}
+
+func capExample() {
+	fmt.Printf("\ncapExample()\n\n")
+
+	var letters = []string{"A", "B", "C", "D"}
+	fmt.Printf("letters: %v \n", letters)
+	fmt.Printf("cap(letters): %v \n\n", cap(letters))
+
+	var lettersA = letters[0:3]
+	fmt.Printf("len(lettersA): %v \n", len(lettersA))
+	fmt.Printf("cap(lettersA): %v \n\n", cap(lettersA))
+
+	var lettersB = letters[1:4]
+	fmt.Printf("len(lettersB): %v \n", len(lettersB))
+	fmt.Printf("cap(lettersB): %v \n\n", cap(lettersB))
+
+	fmt.Printf("\nend of capExample()\n\n")
+}
+
+func slice3IndexesExample() {
+	fmt.Printf("\nslice3IndexesExample()\n\n")
+
+	var brands = []string{"samsung", "apple", "xiaomi", "motorola", "lenovo"}
+	var brandsA = brands[0:4]
+	var brandsB = brands[0:2:3]
+
+	fmt.Printf("brands: %v \n", brands)
+	fmt.Printf("len(brands): %v \n", len(brands))
+	fmt.Printf("cap(brands): %v \n\n", cap(brands))
+
+	fmt.Printf("brandsA: %v \n", brandsA)
+	fmt.Printf("len(brandsA): %v \n", len(brandsA))
+	fmt.Printf("cap(brandsA): %v \n\n", cap(brandsA))
+
+	fmt.Printf("brandsB: %v \n", brandsB)
+	fmt.Printf("len(brandsB): %v \n", len(brandsB))
+	fmt.Printf("cap(brandsB); %v \n\n", cap(brandsB))
+
+	fmt.Printf("\nend of slice3IndexesExample()\n\n")
+}
+
+func appendExample() {
+	fmt.Printf("\nappendExample()\n\n")
+
+	// var list = []int{}
+	list := make([]int, 0)
+	_ = list
+
+	list = append(list, 4)
+	list = append(list, 7)
+	list = append(list, 9)
+	list = append(list, 12)
+	list = append(list, 33)
+	list = append(list, 50)
+
+	for _, item := range list[:] {
+		fmt.Printf("%v \n", item)
+	}
+
+	fmt.Printf("\n")
 
 	var nums []uint8
 
@@ -19,82 +87,51 @@ func Init() {
 		fmt.Println(nums[i])
 	}
 
-	for i := 0; i < 5; i++ {
+	fmt.Printf("\nend of appendExample()\n\n")
+}
+
+func triangleExample() {
+	fmt.Printf("\ntriangleExample()\n\n")
+
+	size := 7
+
+	for i := 0; i < size; i++ {
+		for j := size - i; j >= 0; j-- {
+			fmt.Print(" ")
+		}
 		for j := 0; j < i; j++ {
-			fmt.Print("$")
+			fmt.Print("$ ")
 		}
 		fmt.Print("\n")
 	}
 
-	capExample()
-	copyExample()
-	slice3IndexesExample()
-	appendExample()
-}
-
-func capExample() {
-	var fruits = []string{"apple", "grape", "banana", "melon", "papaya"}
-	fmt.Println(len(fruits)) // len: 4
-	fmt.Println(cap(fruits)) // cap: 4
-
-	var aFruits = fruits[0:3]
-	fmt.Println(len(aFruits)) // len: 3
-	fmt.Println(cap(aFruits)) // cap: 4
-
-	var bFruits = fruits[1:4]
-	fmt.Println(len(bFruits)) // len: 3
-	fmt.Println(cap(bFruits)) // cap: 3
+	fmt.Printf("\nend of triangleExample()\n\n")
 }
 
 func copyExample() {
-	dst := make([]string, 2)
-	src := []string{"watermelon", "pinnaple", "apple", "orange"}
-	// n := copy(dst, src)
-	copy(dst, src)
+	fmt.Printf("\ncopyExample()\n\n")
 
-	fmt.Println(dst) // watermelon pinnaple apple
-	fmt.Println(src) // watermelon pinnaple apple orange
-	// fmt.Println(n)   // 3
+	// make slice of string with capacity of 8
+	// if slice's size is not allocated, thus the copy() won't work
+	dst := make([]string, 8)
+	src := []string{"gibson", "fender", "lespaul", "ibanez", "cort"}
+	n := copy(dst, src)
+	// copy(dst, src)
 
-	for _, d := range dst {
-		print(d, "\n")
+	fmt.Println(dst)
+	fmt.Println(src)
+	fmt.Println("len of slice:", n) // print len of slice
+
+	fmt.Printf("\n")
+
+	for i, d := range dst {
+		if d == "" {
+			d = "-"
+		}
+		fmt.Printf("%d %v \n", i+1, d)
 	}
 
-	print("\n\n")
-}
+	fmt.Printf("\n")
 
-func slice3IndexesExample() {
-	var fruits = []string{"apple", "grape", "banana"}
-	var aFruits = fruits[0:2]
-	var bFruits = fruits[0:2:2]
-
-	fmt.Println(fruits)      // ["apple", "grape", "banana"]
-	fmt.Println(len(fruits)) // len: 3
-	fmt.Println(cap(fruits)) // cap: 3
-
-	fmt.Println(aFruits)      // ["apple", "grape"]
-	fmt.Println(len(aFruits)) // len: 2
-	fmt.Println(cap(aFruits)) // cap: 3
-
-	fmt.Println(bFruits)      // ["apple", "grape"]
-	fmt.Println(len(bFruits)) // len: 2
-	fmt.Println(cap(bFruits)) // cap: 2
-}
-
-func appendExample() {
-
-	// var list = []int{}
-	list := make([]int, 0)
-	_ = list
-
-	list = append(list, 4)
-	list = append(list, 7)
-	list = append(list, 9)
-	list = append(list, 12)
-	list = append(list, 33)
-	list = append(list, 50)
-
-	for _, item := range list[:] {
-		fmt.Print(item, "\n")
-	}
+	fmt.Printf("\nend of copyExample()\n\n")
 }
