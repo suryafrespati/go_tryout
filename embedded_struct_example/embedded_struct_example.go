@@ -8,35 +8,31 @@ type person struct {
 }
 
 type student struct {
-	// age int
-	grade int
+	semester byte
+	major
 	person
 }
 
-func Init() {
-	fmt.Println("Init embedded_struct_example")
-
-	var s1 = student{}
-	s1.name = "wick"
-	s1.age = 21
-	s1.person.age = 14
-	s1.grade = 2
-
-	fmt.Println("name  :", s1.name)
-	fmt.Println("age   :", s1.age)
-	fmt.Println("age   :", s1.person.age)
-	fmt.Println("grade :", s1.grade)
-
-	subStructExample()
+type major struct {
+	name   string
+	degree string
 }
 
-func subStructExample() {
-	fmt.Println("subStructExample()")
+func Init() {
+	fmt.Printf("\n# --- embedded_struct_example\n\n")
 
-	var p1 = person{name: "wick", age: 21}
-	var s1 = student{person: p1, grade: 2}
+	var s1 = student{}
+	s1.person.name = "Aldo Raine"
+	s1.person.age = 22
+	s1.major.name = "Statistic"
+	s1.major.degree = "Bachelor"
+	s1.semester = 7
 
-	fmt.Println("name  :", s1.name)
-	fmt.Println("age   :", s1.age)
-	fmt.Println("grade :", s1.grade)
+	fmt.Println("name  :", s1.person.name)
+	fmt.Println("age   :", s1.person.age)
+	fmt.Println("major :", s1.major.name)
+	fmt.Println("degree :", s1.major.degree)
+	fmt.Println("semester :", s1.semester)
+
+	fmt.Printf("\n# --- end of embedded_struct_example\n\n")
 }
