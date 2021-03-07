@@ -8,52 +8,17 @@ import (
 	"tryout/func_example"
 	"tryout/goroutine_example"
 	"tryout/interface_example"
-	"tryout/library"
 	"tryout/map_example"
 	"tryout/method_example"
-	"tryout/models"
 	"tryout/pointer_example"
 	"tryout/reflect_example"
 	"tryout/stack"
 	"tryout/struct_example"
 )
 
-type Environment map[string]string
-type BaseConfig struct {
-	stage string
-	host  string
-	port  uint16
-}
-
 func main() {
-	fmt.Println("learn Golang")
-	print("\n")
+	fmt.Printf("\n@@@ learn Golang\n\n")
 
-	var user1 = models.User{
-		Name: "Surya",
-		Age:  23,
-	}
-
-	fmt.Println(user1)
-
-	var baseEnv = BaseConfig{
-		stage: "local",
-		host:  "localhost",
-		port:  8080,
-	}
-
-	var env = Environment{
-		"name": "go_dsa",
-	}
-
-	for _, v := range env {
-		fmt.Println("env val", v)
-	}
-
-	_ = env
-	_ = baseEnv
-
-	library.Init()
 	stack.Init()
 	array_slice_example.Init()
 	map_example.Init()
@@ -67,5 +32,5 @@ func main() {
 	error_example.Init()
 	goroutine_example.Init()
 
-	fmt.Println("--- end of file")
+	fmt.Printf("\n@@@ end of learn Golang\n\n")
 }
